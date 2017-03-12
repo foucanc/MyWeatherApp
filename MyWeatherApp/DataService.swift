@@ -15,7 +15,7 @@ class DataService: NSObject {
     
     func updateInfos(weatherObject: [Weather], completion: (Bool, Error?) -> Void) {
         
-        print(weatherObject)
+        print("weather object: \(weatherObject)")
         
         do {
             
