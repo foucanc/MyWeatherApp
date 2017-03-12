@@ -10,6 +10,9 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    
     var viewModel = MainViewModel()
 
     class func mainViewController() -> MainViewController
@@ -22,6 +25,18 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         viewModel.getCurrentWeather()
+        
+        _ = DataService.shared.weather.observeNext(with: { (weather) in
+            if let weather = weather {
+                print(weather.first?.name)
+                self.cityLabel!.text = weather.first?.name
+                self.temperatureLabel!.text = String(describing: Double((weather.first?.temperature)!))
+                
+            }
+            else {
+                print("error")
+            }
+        })
     }
     
     override func didReceiveMemoryWarning() {

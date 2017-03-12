@@ -13,8 +13,7 @@ import CoreLocation
 
 class MainViewModel : NSObject {
     
-    var locationManager : CLLocationManager = CLLocationManager()
-    var locationFixAchieved : Bool = false
+    var weather = Observable<[Weather]?>(nil)
 
     func getCurrentWeather() {
         
@@ -39,6 +38,7 @@ class MainViewModel : NSObject {
                     DataService.shared.updateInfos(weatherObject: datas) { updated, error in
                         if(updated) {
                             print("Les infos ont étés récupérées")
+                            
                         }
                     }
                     

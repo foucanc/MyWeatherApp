@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="MyWeatherApp" customModuleProvider="target">
             <connections>
+                <outlet property="cityLabel" destination="8Qi-iT-cLI" id="AaJ-QX-ngD"/>
+                <outlet property="temperatureLabel" destination="luI-yJ-4B2" id="rIV-l2-Hj9"/>
                 <outlet property="view" destination="iN0-l3-epB" id="yqP-2p-OgS"/>
             </connections>
         </placeholder>
