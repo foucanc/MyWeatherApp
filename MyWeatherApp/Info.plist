@@ -51,5 +51,7 @@
 	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Used to send you the weather in your immediate area</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Used to send you the weather in your immediate area</string>
 </dict>
 </plist>

@@ -32,6 +32,7 @@ class DataService: NSObject {
             completion(true, nil)
         }
         catch {
+            print(error)
             completion(false, error)
         }
     }

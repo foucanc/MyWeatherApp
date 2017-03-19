@@ -10,10 +10,6 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
-protocol Parser {
-    func parseObjects(jsonDic: JSON) -> [Object]
-}
-
 struct CurrentParser: Parser {
     
     static var shared = CurrentParser()
@@ -31,16 +27,15 @@ struct CurrentParser: Parser {
     
     func weatherObj(dic: JSON) -> Weather {
         let weather = Weather()
+        //print(dic)
         
-        weather.name = dic["name"].string!
-        weather.humidity = dic["main"]["humidity"].double!
-        weather.temperature = dic["main"]["temp"].double!
-        weather.main = dic["weather"][0]["main"].string!
-        weather.weatherDescription = dic["weather"][0]["description"].string!
+//        weather.name = dic["name"].stringValue
+//        weather.humidity = dic["main"]["humidity"].doubleValue
+//        weather.temperature = dic["main"]["temp"].doubleValue
+//        weather.main = dic["weather"][0]["main"].stringValue
+//        weather.weatherDescription = dic["weather"][0]["description"].stringValue
         
         
         return weather
     }
-    
-    
 }

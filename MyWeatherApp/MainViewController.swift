@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     var viewModel = MainViewModel()
 
@@ -24,19 +25,26 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        viewModel.getCurrentWeather()
+        
+        viewModel.getForecast()
         
         _ = DataService.shared.weather.observeNext(with: { (weather) in
             if let weather = weather {
-                print(weather.first?.name)
-                self.cityLabel!.text = weather.first?.name
-                self.temperatureLabel!.text = String(describing: Double((weather.first?.temperature)!))
+                self.activityIndicatorView.stopAnimating()
+                print("Xtemperature: \((weather.first?.forecast.first?.temp)!)")
+                self.cityLabel.text = weather.first?.city
+                self.temperatureLabel.text = String(describing: (weather.first?.forecast.first?.temp)!)
                 
             }
             else {
-                print("error")
+                self.activityIndicatorView.stopAnimating()
+                print("Xerror")
             }
         })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        activityIndicatorView.startAnimating()
     }
     
     override func didReceiveMemoryWarning() {

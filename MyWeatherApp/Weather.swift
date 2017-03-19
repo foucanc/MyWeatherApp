@@ -10,10 +10,8 @@ import RealmSwift
 
 class Weather: Object {
         
-    dynamic var main = ""
-    dynamic var weatherDescription = ""
-    dynamic var temperature = 0.0
-    dynamic var humidity = 0.0
-    dynamic var name = ""
-
+    dynamic var country = ""
+    dynamic var city = ""
+    
+    let forecast = List<Forecast>()
 }

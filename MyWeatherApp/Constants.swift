@@ -8,4 +8,9 @@
 
 import Foundation
 
-var URL = "http://api.openweathermap.org/data/2.5/weather"
+var URL = "http://api.openweathermap.org/data/2.5/"
+
+enum WEATHER_TYPE : String {
+    case WEATHER = "weather"
+    case FORECAST = "forecast"
+}
