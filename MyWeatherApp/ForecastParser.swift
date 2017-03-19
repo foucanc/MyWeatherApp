@@ -29,9 +29,7 @@ struct ForecastParser: Parser {
             weather.country = countryName ?? ""
             
             infos.append(weather)
-
         }
-        
         return infos
     }
     
@@ -63,7 +61,6 @@ struct ForecastParser: Parser {
             
             weather.forecast.append(forecast)
         }
-        
         return weather
     }
 }

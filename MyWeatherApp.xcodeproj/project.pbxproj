@@ -19,7 +19,6 @@
 		D92ED8221E75701100D37C77 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92ED8211E75701100D37C77 /* MainViewModel.swift */; };
 		D92ED8241E75706800D37C77 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D92ED8231E75706800D37C77 /* MainView.xib */; };
 		D92ED8261E7574B800D37C77 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92ED8251E7574B800D37C77 /* Weather.swift */; };
-		D92ED8281E7575B400D37C77 /* CurrentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92ED8271E7575B400D37C77 /* CurrentParser.swift */; };
 		D92ED82A1E75760C00D37C77 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92ED8291E75760C00D37C77 /* NetworkHelper.swift */; };
 		D92ED82C1E757B7400D37C77 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92ED82B1E757B7400D37C77 /* Constants.swift */; };
 		D92ED82E1E75854B00D37C77 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92ED82D1E75854B00D37C77 /* DataService.swift */; };
@@ -55,7 +54,6 @@
 		D92ED8211E75701100D37C77 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		D92ED8231E75706800D37C77 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		D92ED8251E7574B800D37C77 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		D92ED8271E7575B400D37C77 /* CurrentParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentParser.swift; sourceTree = "<group>"; };
 		D92ED8291E75760C00D37C77 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		D92ED82B1E757B7400D37C77 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D92ED82D1E75854B00D37C77 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 		D92ED81A1E7564A900D37C77 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				D92ED8271E7575B400D37C77 /* CurrentParser.swift */,
 				D90B00CC1E7D4B0B00A54645 /* ForecastParser.swift */,
 				D90B00CE1E7D4B6300A54645 /* Parser.swift */,
 			);
@@ -395,7 +392,6 @@
 				D92ED82C1E757B7400D37C77 /* Constants.swift in Sources */,
 				D90B00CD1E7D4B0B00A54645 /* ForecastParser.swift in Sources */,
 				D92ED82A1E75760C00D37C77 /* NetworkHelper.swift in Sources */,
-				D92ED8281E7575B400D37C77 /* CurrentParser.swift in Sources */,
 				D92ED8311E75CDC700D37C77 /* LocationService.swift in Sources */,
 				D92ED82E1E75854B00D37C77 /* DataService.swift in Sources */,
 			);

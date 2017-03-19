@@ -8,7 +8,8 @@
 
 import Foundation
 
-var URL = "http://api.openweathermap.org/data/2.5/"
+let URL = "http://api.openweathermap.org/data/2.5/"
+let API_KEY = "2c50f7d7623f375e3e334ecaa83ce363"
 
 enum WEATHER_TYPE : String {
     case WEATHER = "weather"

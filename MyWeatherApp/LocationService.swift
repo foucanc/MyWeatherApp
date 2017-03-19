@@ -18,7 +18,6 @@ class LocationService: NSObject {
         initLocationManager()
 
         if let locationObject = locationManager.location {
-            //print(locationObject.coordinate.latitude)
             completion(true,locationObject.coordinate)
         }
         else {

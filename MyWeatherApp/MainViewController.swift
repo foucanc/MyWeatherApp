@@ -31,14 +31,12 @@ class MainViewController: UIViewController {
         _ = DataService.shared.weather.observeNext(with: { (weather) in
             if let weather = weather {
                 self.activityIndicatorView.stopAnimating()
-                print("Xtemperature: \((weather.first?.forecast.first?.temp)!)")
                 self.cityLabel.text = weather.first?.city
                 self.temperatureLabel.text = String(describing: (weather.first?.forecast.first?.temp)!)
                 
             }
             else {
                 self.activityIndicatorView.stopAnimating()
-                print("Xerror")
             }
         })
     }

@@ -36,7 +36,5 @@ class Forecast: Object {
     //wind
     dynamic var speed = 0.0
     dynamic var deg = 0.0
-    
-    //Description: https://openweathermap.org/forecast5
 
 }
