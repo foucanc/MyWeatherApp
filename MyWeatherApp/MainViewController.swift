@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
@@ -25,14 +26,20 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.cityLabel.text = ""
+        self.temperatureLabel.text = ""
         
-        viewModel.getForecast()
+        viewModel.getDailyForecast()
         
         _ = DataService.shared.weather.observeNext(with: { (weather) in
             if let weather = weather {
+                print(weather)
                 self.activityIndicatorView.stopAnimating()
-                self.cityLabel.text = weather.first?.city
-                self.temperatureLabel.text = String(describing: (weather.first?.forecast.first?.temp)!)
+                self.cityLabel.text = weather.city
+//                self.temperatureLabel.text = String(describing: (weather.first?.hourForecast.first?.temp)!)
+//                let imageName = "sleet.png"
+//                let image = UIImage(named: imageName)
+//                self.imageView.image = image
                 
             }
             else {
@@ -43,6 +50,14 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         activityIndicatorView.startAnimating()
+        _ = DataService.shared.weather.observeNext(with: { (weather) in
+            if weather != nil {
+                self.activityIndicatorView.stopAnimating()
+            }
+            else {
+                self.activityIndicatorView.stopAnimating()
+            }
+        })
     }
     
     override func didReceiveMemoryWarning() {

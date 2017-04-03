@@ -10,5 +10,6 @@ import RealmSwift
 import SwiftyJSON
 
 protocol Parser {
+    func parseObject(jsonDic: JSON) -> Object
     func parseObjects(jsonDic: JSON) -> [Object]
 }

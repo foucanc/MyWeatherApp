@@ -11,18 +11,21 @@ import Bond
 
 class DataService: NSObject {
     static var shared = DataService()
-    var weather = Observable<[Weather]?>(nil)
+    var weather = Observable<Weather?>(nil)
     
-    func updateInfos(weatherObject: [Weather], completion: (Bool, Error?) -> Void) {
-        
+    func updateInfos(weatherObject: Weather, hourObject: [HourForecast], completion: (Bool, Error?) -> Void) {
         do {
             
             let realm = try Realm()
             
             realm.beginWrite()
-            realm.delete(realm.objects(Weather.self))
-            realm.add(weatherObject)
+            let oldInfos = realm.objects(Weather.self)
+            realm.delete(oldInfos)
+            try realm.commitWrite()
             
+            realm.beginWrite()
+            weatherObject.hourForecast.append(objectsIn: hourObject)
+            realm.add(weatherObject, update: true)
             try realm.commitWrite()
             
             self.weather.value = weatherObject

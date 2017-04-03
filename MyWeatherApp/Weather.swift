@@ -9,9 +9,13 @@
 import RealmSwift
 
 class Weather: Object {
-        
+    
+    override static func primaryKey() -> String? {
+        return "city"
+    }
     dynamic var country = ""
     dynamic var city = ""
     
-    let forecast = List<Forecast>()
+    let dailyForecast = List<DailyForecast>()
+    let hourForecast = List<HourForecast>()
 }

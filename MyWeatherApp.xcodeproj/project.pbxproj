@@ -8,9 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		AF430E49F07187C191CB97AF /* Pods_MyWeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A0137BABBC06EE75ED59285 /* Pods_MyWeatherApp.framework */; };
-		D90B00CD1E7D4B0B00A54645 /* ForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90B00CC1E7D4B0B00A54645 /* ForecastParser.swift */; };
+		D90B00CD1E7D4B0B00A54645 /* HourForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90B00CC1E7D4B0B00A54645 /* HourForecastParser.swift */; };
 		D90B00CF1E7D4B6300A54645 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90B00CE1E7D4B6300A54645 /* Parser.swift */; };
-		D90B00D11E7D544A00A54645 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90B00D01E7D544A00A54645 /* Forecast.swift */; };
+		D90B00D11E7D544A00A54645 /* HourForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90B00D01E7D544A00A54645 /* HourForecast.swift */; };
+		D90EE2941E8CF7D6006A11DD /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EE2931E8CF7D6006A11DD /* DailyViewController.swift */; };
+		D90EE2961E8CF7EA006A11DD /* DailyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D90EE2951E8CF7EA006A11DD /* DailyView.xib */; };
+		D90EE29A1E8CF829006A11DD /* WeeklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EE2991E8CF829006A11DD /* WeeklyViewController.swift */; };
+		D90EE29C1E8CF880006A11DD /* WeeklyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D90EE29B1E8CF880006A11DD /* WeeklyView.xib */; };
+		D90EE29E1E8D0D02006A11DD /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EE29D1E8D0D02006A11DD /* DailyForecast.swift */; };
+		D90EE2A01E8D0DF8006A11DD /* DailyForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EE29F1E8D0DF8006A11DD /* DailyForecastParser.swift */; };
+		D925A89E1E869DB1006FD0FA /* rain.png in Resources */ = {isa = PBXBuildFile; fileRef = D925A89B1E869DB1006FD0FA /* rain.png */; };
+		D925A89F1E869DB1006FD0FA /* rain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D925A89C1E869DB1006FD0FA /* rain@2x.png */; };
+		D925A8A01E869DB1006FD0FA /* rain@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D925A89D1E869DB1006FD0FA /* rain@3x.png */; };
+		D925A8A41E86B106006FD0FA /* flake.png in Resources */ = {isa = PBXBuildFile; fileRef = D925A8A11E86B106006FD0FA /* flake.png */; };
+		D925A8A51E86B106006FD0FA /* flake@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D925A8A21E86B106006FD0FA /* flake@2x.png */; };
+		D925A8A61E86B106006FD0FA /* flake@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D925A8A31E86B106006FD0FA /* flake@3x.png */; };
+		D925A8AA1E86B224006FD0FA /* sleet.png in Resources */ = {isa = PBXBuildFile; fileRef = D925A8A71E86B224006FD0FA /* sleet.png */; };
+		D925A8AB1E86B224006FD0FA /* sleet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D925A8A81E86B224006FD0FA /* sleet@2x.png */; };
+		D925A8AC1E86B224006FD0FA /* sleet@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D925A8A91E86B224006FD0FA /* sleet@3x.png */; };
 		D92ED7F71E75640100D37C77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92ED7F61E75640100D37C77 /* AppDelegate.swift */; };
 		D92ED7FE1E75640100D37C77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D92ED7FD1E75640100D37C77 /* Assets.xcassets */; };
 		D92ED8011E75640100D37C77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D92ED7FF1E75640100D37C77 /* LaunchScreen.storyboard */; };
@@ -39,9 +54,24 @@
 		8E5939C188A0B753F40CD9B4 /* Pods-MyWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeatherApp/Pods-MyWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9A0137BABBC06EE75ED59285 /* Pods_MyWeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF97E59689D01B638B58F9B2 /* Pods-MyWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeatherApp/Pods-MyWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
-		D90B00CC1E7D4B0B00A54645 /* ForecastParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastParser.swift; sourceTree = "<group>"; };
+		D90B00CC1E7D4B0B00A54645 /* HourForecastParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourForecastParser.swift; sourceTree = "<group>"; };
 		D90B00CE1E7D4B6300A54645 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		D90B00D01E7D544A00A54645 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		D90B00D01E7D544A00A54645 /* HourForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourForecast.swift; sourceTree = "<group>"; };
+		D90EE2931E8CF7D6006A11DD /* DailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
+		D90EE2951E8CF7EA006A11DD /* DailyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyView.xib; sourceTree = "<group>"; };
+		D90EE2991E8CF829006A11DD /* WeeklyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyViewController.swift; sourceTree = "<group>"; };
+		D90EE29B1E8CF880006A11DD /* WeeklyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeeklyView.xib; sourceTree = "<group>"; };
+		D90EE29D1E8D0D02006A11DD /* DailyForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
+		D90EE29F1E8D0DF8006A11DD /* DailyForecastParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyForecastParser.swift; sourceTree = "<group>"; };
+		D925A89B1E869DB1006FD0FA /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rain.png; sourceTree = "<group>"; };
+		D925A89C1E869DB1006FD0FA /* rain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rain@2x.png"; sourceTree = "<group>"; };
+		D925A89D1E869DB1006FD0FA /* rain@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rain@3x.png"; sourceTree = "<group>"; };
+		D925A8A11E86B106006FD0FA /* flake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flake.png; sourceTree = "<group>"; };
+		D925A8A21E86B106006FD0FA /* flake@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flake@2x.png"; sourceTree = "<group>"; };
+		D925A8A31E86B106006FD0FA /* flake@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flake@3x.png"; sourceTree = "<group>"; };
+		D925A8A71E86B224006FD0FA /* sleet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleet.png; sourceTree = "<group>"; };
+		D925A8A81E86B224006FD0FA /* sleet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sleet@2x.png"; sourceTree = "<group>"; };
+		D925A8A91E86B224006FD0FA /* sleet@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sleet@3x.png"; sourceTree = "<group>"; };
 		D92ED7F31E75640100D37C77 /* MyWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92ED7F61E75640100D37C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D92ED7FD1E75640100D37C77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,6 +126,56 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D9091D291E8418FD00433E3C /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				D9091D2A1E84191300433E3C /* Images */,
+			);
+			name = Ressources;
+			sourceTree = "<group>";
+		};
+		D9091D2A1E84191300433E3C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D9091D2B1E84192400433E3C /* icons */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		D9091D2B1E84192400433E3C /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				D925A89B1E869DB1006FD0FA /* rain.png */,
+				D925A89C1E869DB1006FD0FA /* rain@2x.png */,
+				D925A89D1E869DB1006FD0FA /* rain@3x.png */,
+				D925A8A11E86B106006FD0FA /* flake.png */,
+				D925A8A21E86B106006FD0FA /* flake@2x.png */,
+				D925A8A31E86B106006FD0FA /* flake@3x.png */,
+				D925A8A71E86B224006FD0FA /* sleet.png */,
+				D925A8A81E86B224006FD0FA /* sleet@2x.png */,
+				D925A8A91E86B224006FD0FA /* sleet@3x.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
+		D90EE2911E8CF76A006A11DD /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				D90EE2931E8CF7D6006A11DD /* DailyViewController.swift */,
+				D90EE2951E8CF7EA006A11DD /* DailyView.xib */,
+			);
+			name = Daily;
+			sourceTree = "<group>";
+		};
+		D90EE2921E8CF77C006A11DD /* Weekly */ = {
+			isa = PBXGroup;
+			children = (
+				D90EE2991E8CF829006A11DD /* WeeklyViewController.swift */,
+				D90EE29B1E8CF880006A11DD /* WeeklyView.xib */,
+			);
+			name = Weekly;
+			sourceTree = "<group>";
+		};
 		D92ED7EA1E75640000D37C77 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +199,7 @@
 		D92ED7F51E75640100D37C77 /* MyWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				D9091D291E8418FD00433E3C /* Ressources */,
 				D92ED8161E75647A00D37C77 /* Common */,
 				D92ED8171E75648300D37C77 /* Classes */,
 				D92ED7F61E75640100D37C77 /* AppDelegate.swift */,
@@ -154,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				D92ED81E1E7565AD00D37C77 /* Main */,
+				D90EE2911E8CF76A006A11DD /* Daily */,
+				D90EE2921E8CF77C006A11DD /* Weekly */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -171,7 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				D92ED8251E7574B800D37C77 /* Weather.swift */,
-				D90B00D01E7D544A00A54645 /* Forecast.swift */,
+				D90EE29D1E8D0D02006A11DD /* DailyForecast.swift */,
+				D90B00D01E7D544A00A54645 /* HourForecast.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -179,7 +263,8 @@
 		D92ED81A1E7564A900D37C77 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				D90B00CC1E7D4B0B00A54645 /* ForecastParser.swift */,
+				D90EE29F1E8D0DF8006A11DD /* DailyForecastParser.swift */,
+				D90B00CC1E7D4B0B00A54645 /* HourForecastParser.swift */,
 				D90B00CE1E7D4B6300A54645 /* Parser.swift */,
 			);
 			name = Parser;
@@ -275,7 +360,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Christophe Foucan";
 				TargetAttributes = {
 					D92ED7F21E75640100D37C77 = {
@@ -316,7 +401,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D92ED8241E75706800D37C77 /* MainView.xib in Resources */,
+				D90EE29C1E8CF880006A11DD /* WeeklyView.xib in Resources */,
+				D925A8A41E86B106006FD0FA /* flake.png in Resources */,
+				D90EE2961E8CF7EA006A11DD /* DailyView.xib in Resources */,
+				D925A89F1E869DB1006FD0FA /* rain@2x.png in Resources */,
+				D925A8AC1E86B224006FD0FA /* sleet@3x.png in Resources */,
+				D925A8AB1E86B224006FD0FA /* sleet@2x.png in Resources */,
+				D925A89E1E869DB1006FD0FA /* rain.png in Resources */,
+				D925A8A51E86B106006FD0FA /* flake@2x.png in Resources */,
+				D925A8A01E869DB1006FD0FA /* rain@3x.png in Resources */,
 				D92ED8011E75640100D37C77 /* LaunchScreen.storyboard in Resources */,
+				D925A8AA1E86B224006FD0FA /* sleet.png in Resources */,
+				D925A8A61E86B106006FD0FA /* flake@3x.png in Resources */,
 				D92ED7FE1E75640100D37C77 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,17 +479,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D90EE29E1E8D0D02006A11DD /* DailyForecast.swift in Sources */,
 				D92ED8261E7574B800D37C77 /* Weather.swift in Sources */,
 				D90B00CF1E7D4B6300A54645 /* Parser.swift in Sources */,
+				D90EE2941E8CF7D6006A11DD /* DailyViewController.swift in Sources */,
 				D92ED7F71E75640100D37C77 /* AppDelegate.swift in Sources */,
 				D92ED8201E756FA300D37C77 /* MainViewController.swift in Sources */,
-				D90B00D11E7D544A00A54645 /* Forecast.swift in Sources */,
+				D90B00D11E7D544A00A54645 /* HourForecast.swift in Sources */,
 				D92ED8221E75701100D37C77 /* MainViewModel.swift in Sources */,
 				D92ED82C1E757B7400D37C77 /* Constants.swift in Sources */,
-				D90B00CD1E7D4B0B00A54645 /* ForecastParser.swift in Sources */,
+				D90B00CD1E7D4B0B00A54645 /* HourForecastParser.swift in Sources */,
+				D90EE29A1E8CF829006A11DD /* WeeklyViewController.swift in Sources */,
 				D92ED82A1E75760C00D37C77 /* NetworkHelper.swift in Sources */,
 				D92ED8311E75CDC700D37C77 /* LocationService.swift in Sources */,
 				D92ED82E1E75854B00D37C77 /* DataService.swift in Sources */,
+				D90EE2A01E8D0DF8006A11DD /* DailyForecastParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +624,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E5939C188A0B753F40CD9B4 /* Pods-MyWeatherApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4D644G77ZS;
 				INFOPLIST_FILE = MyWeatherApp/Info.plist;
@@ -538,6 +639,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CF97E59689D01B638B58F9B2 /* Pods-MyWeatherApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4D644G77ZS;
 				INFOPLIST_FILE = MyWeatherApp/Info.plist;

@@ -16,10 +16,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        let tabBarController = UITabBarController()
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
-        let ctrl = MainViewController.mainViewController()
-        self.window?.rootViewController = ctrl
+        
+        let main = MainViewController.mainViewController()
+        main.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.mostViewed, tag: 1)
+        
+        let daily = DailyViewController.dailyViewController()
+        daily.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.recents, tag: 2)
+        
+        let controllers = [main,daily]
+        tabBarController.viewControllers = controllers
+        //self.window?.rootViewController = ctrl
+        self.window?.rootViewController = tabBarController
+        
+        
         self.window?.makeKeyAndVisible()
+        
+
         return true
     }
 
