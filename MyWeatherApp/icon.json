@@ -1,0 +1,11 @@
+{
+    "01d":"clear",
+    "02d":"partycloudy",
+    "03d":"cloudy",
+    "04d":"cloudy",
+    "09d":"rain",
+    "10d":"chancerain",
+    "11d":"storm",
+    "13d":"flake",
+    "50d":"fog",
+}
