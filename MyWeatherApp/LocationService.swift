@@ -33,7 +33,7 @@ extension LocationService : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
-            let pm = placemarks![0]
+            let pm = placemarks?[0]
             self.displayLocationInfo(placemark: pm)
         })
         

@@ -13,7 +13,7 @@ class DataService: NSObject {
     static var shared = DataService()
     var weather = Observable<Weather?>(nil)
     
-    func updateInfos(weatherObject: Weather, hourObject: [HourForecast], completion: (Bool, Error?) -> Void) {
+    func updateInfos(weatherObject: Weather, dailyObject: [DailyForecast], hourObject: [HourForecast], completion: (Bool, Error?) -> Void) {
         do {
             
             let realm = try Realm()
@@ -25,6 +25,7 @@ class DataService: NSObject {
             
             realm.beginWrite()
             weatherObject.hourForecast.append(objectsIn: hourObject)
+            weatherObject.dailyForecast.append(objectsIn: dailyObject)
             realm.add(weatherObject, update: true)
             try realm.commitWrite()
             

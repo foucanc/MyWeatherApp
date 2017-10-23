@@ -10,4 +10,9 @@ import UIKit
 
 class DailyForecastCollectionViewCell: UICollectionViewCell {
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
 }

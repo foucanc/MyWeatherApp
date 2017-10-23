@@ -16,10 +16,11 @@ class MainViewModel : NSObject {
     var weather = Observable<[Weather]?>(nil)
     var lat : String = ""
     var lon : String = ""
-    // MARK: Daily Forecast
-    func getDailyForecast() {
+    
+    // MARK: Current Weather
+    func getCurrentWeather() {
         
-        let url = URL + String(describing: WEATHER_TYPE.daily.rawValue)
+        let url = URL + String(describing: WEATHER_TYPE.weather.rawValue)
         
         LocationService.shared.requestLocation(){ (updated, coord) in
             
@@ -30,17 +31,17 @@ class MainViewModel : NSObject {
                 "APPID": API_KEY,
                 "lat": coord.latitude,
                 "lon": coord.longitude,
-                "units": "metric",
-                "cnt": 5
+                "units": "metric"
             ]
             
             Alamofire.request(url, parameters: parameters).responseJSON{response in
+                //print(response.request)
                 if response.data != nil {
                     let data: Data = response.data!
                     let json = JSON(data: data)
-                    
-                    let datas = DailyForecastParser.shared.parseObject(jsonDic: json) as! Weather
-                    self.getHourForecast(object: datas)
+
+                    let datas = WeatherParser.shared.parseObject(jsonDic: json) as! Weather
+                    self.getDailyForecast(object: datas)
                 }
                 else {
                     print("Failed to load: \(String(describing: response.error?.localizedDescription))")
@@ -48,9 +49,37 @@ class MainViewModel : NSObject {
             }
         }
     }
+
+    // MARK: Daily Forecast
+    func getDailyForecast(object: Weather) {
+        
+        let url = URL + String(describing: WEATHER_TYPE.daily.rawValue)
+        
+        let parameters: Parameters = [
+            "APPID": API_KEY,
+            "lat": lat,
+            "lon": lon,
+            "units": "metric",
+            "cnt": 5
+        ]
+        
+        Alamofire.request(url, parameters: parameters).responseJSON{response in
+            if response.data != nil {
+                let data: Data = response.data!
+                let json = JSON(data: data)
+                
+                let datas = DailyForecastParser.shared.parseObjects(jsonDic: json) as! [DailyForecast]
+                self.getHourForecast(object: object, daily: datas)
+            }
+            else {
+                print("Failed to load: \(String(describing: response.error?.localizedDescription))")
+            }
+        }
+        
+    }
     
     // MARK: Hour Forecast
-    func getHourForecast(object: Weather) {
+    func getHourForecast(object: Weather, daily: [DailyForecast]) {
         
         let url = URL + String(describing: WEATHER_TYPE.forecast.rawValue)
         
@@ -67,8 +96,8 @@ class MainViewModel : NSObject {
                 let data: Data = response.data!
                 let json = JSON(data: data)
                 let datas = HourForecastParser.shared.parseObjects(jsonDic: json) as! [HourForecast]
-                
-                DataService.shared.updateInfos(weatherObject: object, hourObject: datas) { updated, error in
+
+                DataService.shared.updateInfos(weatherObject: object, dailyObject: daily, hourObject: datas) { updated, error in
                     if(updated) {
                         
                     }

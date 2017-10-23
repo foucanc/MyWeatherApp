@@ -7,7 +7,21 @@
 //
 
 import UIKit
+import SwiftyJSON
+import RealmSwift
 
-class IconParser: NSObject {
+struct IconParser: Parser {
+    
+    static var shared = IconParser()
+    
+    func parseObject(jsonDic: JSON) -> Object {
+        let info = Weather()
+        return info
+    }
+    
+    func parseObjects(jsonDic: JSON) -> [Object] {
+        let infos = [Weather]()
+        return infos
+    }
 
 }

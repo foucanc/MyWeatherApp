@@ -15,50 +15,44 @@ struct DailyForecastParser: Parser {
     static var shared = DailyForecastParser()
     
     func parseObject(jsonDic: JSON) -> Object {
-        let weather = self.weatherObj(dic: jsonDic)
-        
-        let countryCode = jsonDic["city"]["country"].stringValue
-        let currentLocale : NSLocale = NSLocale.init(localeIdentifier :  NSLocale.current.identifier)
-        let countryName : String? = currentLocale.displayName(forKey: NSLocale.Key.countryCode, value: countryCode)
-        weather.city = jsonDic["city"]["name"].stringValue
-        weather.country = countryName ?? ""
-
-        return weather
+        let info = Weather()
+        return info
     }
     
     func parseObjects(jsonDic: JSON) -> [Object] {
-        let infos = [Weather]()
+        var infos = [DailyForecast]()
+        //print(jsonDic)
+        for index in jsonDic["list"] {
+            let weather = self.weatherObj(dic: index.1)
+            infos.append(weather)
+        }
+        //print(infos)
         return infos
     }
     
-    func weatherObj(dic: JSON) -> Weather {
-        let weather = Weather()
+    func weatherObj(dic: JSON) -> DailyForecast {
+        let forecast = DailyForecast()
         
-        for index in dic["list"] {
-            let forecast = DailyForecast()
-            
-            forecast.humidity = index.1["main"]["humidity"].intValue
-            forecast.min = index.1["temp"]["min"].doubleValue
-            forecast.max = index.1["temp"]["max"].doubleValue
-            forecast.day = index.1["temp"]["day"].doubleValue
-            forecast.night = index.1["temp"]["night"].doubleValue
-            forecast.pressure = index.1["main"]["pressure"].doubleValue
+        forecast.humidity = dic["main"]["humidity"].intValue
+        forecast.min = dic["temp"]["min"].doubleValue
+        forecast.max = dic["temp"]["max"].doubleValue
+        forecast.day = dic["temp"]["day"].doubleValue
+        forecast.night = dic["temp"]["night"].doubleValue
+        forecast.pressure = dic["main"]["pressure"].doubleValue
 
-            forecast.clouds = index.1["clouds"].intValue
-            
-            forecast.id = index.1["weather"][0]["id"].intValue
-            forecast.main = index.1["weather"][0]["main"].stringValue
-            forecast.icon = index.1["weather"][0]["icon"].stringValue
-            forecast.weatherDescription = index.1["weather"][0]["description"].stringValue
-            
-//            //forecast.dt = dutytime
-            
-            forecast.speed = index.1["speed"].doubleValue
-            forecast.deg = index.1["deg"].doubleValue
-            
-            weather.dailyForecast.append(forecast)
-        }
+        forecast.clouds = dic["clouds"].intValue
         
-        return weather
+        forecast.id = dic["weather"][0]["id"].intValue
+        forecast.main = dic["weather"][0]["main"].stringValue
+        forecast.icon = dic["weather"][0]["icon"].stringValue
+        forecast.weatherDescription = dic["weather"][0]["description"].stringValue
+        
+//            //forecast.dt = dutytime
+        
+        forecast.speed = dic["speed"].doubleValue
+        forecast.deg = dic["deg"].doubleValue
+            
+
+        return forecast
     }
 }
