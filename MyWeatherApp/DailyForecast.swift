@@ -11,26 +11,26 @@ import RealmSwift
 class DailyForecast: Object {
     
     //main
-    dynamic var humidity = 0
-    dynamic var min = 0.0 //min daily temperature
-    dynamic var max = 0.0 //max daily temperature
-    dynamic var day = 0.0 //day temperature
-    dynamic var night = 0.0 //night temperature
-    dynamic var pressure = 0.0
+    @objc dynamic var humidity = 0
+    @objc dynamic var min = 0.0 //min daily temperature
+    @objc dynamic var max = 0.0 //max daily temperature
+    @objc dynamic var day = 0.0 //day temperature
+    @objc dynamic var night = 0.0 //night temperature
+    @objc dynamic var pressure = 0.0
     
     //clouds
-    dynamic var clouds = 0
+    @objc dynamic var clouds = 0
     
     //weather
-    dynamic var id = 0
-    dynamic var main = ""
-    dynamic var icon = ""
-    dynamic var weatherDescription = ""
+    @objc dynamic var id = 0
+    @objc dynamic var main = ""
+    @objc dynamic var icon = ""
+    @objc dynamic var weatherDescription = ""
     
     //time
-    dynamic var dt: Date?
+    @objc dynamic var dt: Date?
     
     //wind
-    dynamic var speed = 0.0
-    dynamic var deg = 0.0
+    @objc dynamic var speed = 0.0
+    @objc dynamic var deg = 0.0
 }

@@ -14,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Diff.xcscheme</key>
+		<key>Differ.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -61,62 +61,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>0099E2494CDBD2F5D7F25ED13148B340</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>00D95F16A0BC42D5401C5A1A16E36658</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1E10FED31577C15826942D5E484F4510</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2ED2A949DDD54EB688701F26BF9C351E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4F45E6EDDB0327A5D520E0C3C09C2324</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4FB3D46208EBA3599BFB96A88770E827</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8485B972782270B2514EA13E76C76D65</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>872ECFD6E12DBB5FF77D4638724F7456</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B0F418698B4D9117346399BB41A1F35A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CDAF1A7656815F3B29B8C2026A30E560</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

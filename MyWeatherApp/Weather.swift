@@ -14,16 +14,16 @@ class Weather: Object {
         return "city"
     }
     
-    dynamic var country = ""
-    dynamic var city = ""
-    dynamic var dt : Date?
+    @objc dynamic var country = ""
+    @objc dynamic var city = ""
+    @objc dynamic var dt : Date?
     
-    dynamic var temp = 0.0
-    dynamic var temp_max = 0
-    dynamic var temp_min = 0
-    dynamic var pressure = 0
-    dynamic var humidity = 0
-    dynamic var clouds = 0
+    @objc dynamic var temp = 0.0
+    @objc dynamic var temp_max = 0
+    @objc dynamic var temp_min = 0
+    @objc dynamic var pressure = 0
+    @objc dynamic var humidity = 0
+    @objc dynamic var clouds = 0
 
     let weatherCondition = List<WeatherCondition>()
     
@@ -32,8 +32,8 @@ class Weather: Object {
 }
 
 class WeatherCondition: Object {
-    dynamic var id = 0
-    dynamic var main = ""
-    dynamic var icon = ""
-    dynamic var weatherDescription = ""
+    @objc dynamic var id = 0
+    @objc dynamic var main = ""
+    @objc dynamic var icon = ""
+    @objc dynamic var weatherDescription = ""
 }

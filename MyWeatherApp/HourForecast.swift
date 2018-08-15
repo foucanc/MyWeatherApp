@@ -11,30 +11,30 @@ import RealmSwift
 class HourForecast: Object {
     
     //main
-    dynamic var humidity = 0
-    dynamic var temp_min = 0.0
-    dynamic var temp_max = 0.0
-    dynamic var temp = 0.0
-    dynamic var pressure = 0.0
+    @objc dynamic var humidity = 0
+    @objc dynamic var temp_min = 0.0
+    @objc dynamic var temp_max = 0.0
+    @objc dynamic var temp = 0.0
+    @objc dynamic var pressure = 0.0
     
     //clouds
-    dynamic var clouds = 0
+    @objc dynamic var clouds = 0
     
     //weather
-    dynamic var id = 0
-    dynamic var main = ""
-    dynamic var icon = ""
-    dynamic var weatherDescription = ""
+    @objc dynamic var id = 0
+    @objc dynamic var main = ""
+    @objc dynamic var icon = ""
+    @objc dynamic var weatherDescription = ""
     
     //time
-    //dynamic var dt: Date?
-    dynamic var dt_txt = ""
+    //@objc dynamic var dt: Date?
+    @objc dynamic var dt_txt = ""
     
     //rain
-    dynamic var rain = 0.0
+    @objc dynamic var rain = 0.0
     
     //wind
-    dynamic var speed = 0.0
-    dynamic var deg = 0.0
+    @objc dynamic var speed = 0.0
+    @objc dynamic var deg = 0.0
 
 }

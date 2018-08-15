@@ -112,6 +112,90 @@ extension SignalProtocol where Error == NoError {
         }
       }
   }
+
+  /// Bind the receiver to target's property specified by the key path. The property is
+  /// updated whenever the signal emits `next` event.
+  ///
+  /// Binding lives until either the signal completes or the target is deallocated.
+  /// That means that the returned disposable can be safely ignored.
+  ///
+  /// - Parameters:
+  ///   - target: A binding target. Conforms to `Deallocatable` so it can inform the binding
+  ///  when it gets deallocated. Upon target deallocation, the binding gets automatically disposed.
+  ///   - keyPath: A key path to the property that will be updated with each sent element.
+  /// - Returns: A disposable that can cancel the binding.
+  @discardableResult
+  public func bind<Target: Deallocatable>(to target: Target, keyPath: ReferenceWritableKeyPath<Target, Element>) -> Disposable where Target: BindingExecutionContextProvider
+  {
+    return bind(to: target) { (target, element) in
+      target[keyPath: keyPath] = element
+    }
+  }
+
+  /// Bind the receiver to target's property specified by the key path. The property is
+  /// updated whenever the signal emits `next` event.
+  ///
+  /// Binding lives until either the signal completes or the target is deallocated.
+  /// That means that the returned disposable can be safely ignored.
+  ///
+  /// - Parameters:
+  ///   - target: A binding target. Conforms to `Deallocatable` so it can inform the binding
+  ///  when it gets deallocated. Upon target deallocation, the binding gets automatically disposed.
+  ///   - keyPath: A key path to the property that will be updated with each sent element.
+  ///   - context: An execution context on which to execute the setter.
+  /// - Returns: A disposable that can cancel the binding.
+  @discardableResult
+  public func bind<Target: Deallocatable>(to target: Target, keyPath: ReferenceWritableKeyPath<Target, Element>, context: ExecutionContext) -> Disposable
+  {
+    return bind(to: target, context: context) { (target, element) in
+      target[keyPath: keyPath] = element
+    }
+  }
+}
+
+extension SignalProtocol where Error == NoError, Element == Void {
+
+  /// Bind the receiver to the target using the given setter closure. Closure is
+  /// called whenever the signal emits `next` event.
+  ///
+  /// Binding lives until either the signal completes or the target is deallocated.
+  /// That means that the returned disposable can be safely ignored.
+  ///
+  /// - Parameters:
+  ///   - target: A binding target. Conforms to `Deallocatable` so it can inform the binding
+  ///  when it gets deallocated. Upon target deallocation, the binding gets automatically disposed.
+  /// Also conforms to `BindingExecutionContextProvider` that provides that context on which to execute the setter.
+  ///   - setter: A closure that gets called on each next signal event with the target.
+  /// - Returns: A disposable that can cancel the binding.
+  @discardableResult
+  public func bind<Target: Deallocatable>(to target: Target, setter: @escaping (Target) -> Void) -> Disposable
+    where Target: BindingExecutionContextProvider
+  {
+    return bind(to: target, context: target.bindingExecutionContext, setter: setter)
+  }
+
+  /// Bind the receiver to the target using the given setter closure. Closure is
+  /// called whenever the signal emits `next` event.
+  ///
+  /// Binding lives until either the signal completes or the target is deallocated.
+  /// That means that the returned disposable can be safely ignored.
+  ///
+  /// - Parameters:
+  ///   - target: A binding target. Conforms to `Deallocatable` so it can inform the binding
+  ///  when it gets deallocated. Upon target deallocation, the binding gets automatically disposed.
+  ///   - context: An execution context on which to execute the setter.
+  ///   - setter: A closure that gets called on each next signal event with the target.
+  /// - Returns: A disposable that can cancel the binding.
+  @discardableResult
+  public func bind<Target: Deallocatable>(to target: Target, context: ExecutionContext, setter: @escaping (Target) -> Void) -> Disposable {
+    return take(until: target.deallocated).observeNext { [weak target] _ in
+      context.execute {
+        if let target = target {
+          setter(target)
+        }
+      }
+    }
+  }
 }
 
 /// Provides an execution context used to deliver binding events.

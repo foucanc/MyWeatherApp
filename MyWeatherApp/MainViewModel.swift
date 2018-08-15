@@ -38,7 +38,7 @@ class MainViewModel : NSObject {
                 //print(response.request)
                 if response.data != nil {
                     let data: Data = response.data!
-                    let json = JSON(data: data)
+                    guard let json = try? JSON(data: data) else { return }
 
                     let datas = WeatherParser.shared.parseObject(jsonDic: json) as! Weather
                     self.getDailyForecast(object: datas)
@@ -66,7 +66,7 @@ class MainViewModel : NSObject {
         Alamofire.request(url, parameters: parameters).responseJSON{response in
             if response.data != nil {
                 let data: Data = response.data!
-                let json = JSON(data: data)
+                guard let json = try? JSON(data: data) else { return }
                 
                 let datas = DailyForecastParser.shared.parseObjects(jsonDic: json) as! [DailyForecast]
                 self.getHourForecast(object: object, daily: datas)
@@ -94,7 +94,7 @@ class MainViewModel : NSObject {
             //debugPrint(response.request!)
             if response.data != nil {
                 let data: Data = response.data!
-                let json = JSON(data: data)
+                guard let json = try? JSON(data: data) else { return }
                 let datas = HourForecastParser.shared.parseObjects(jsonDic: json) as! [HourForecast]
 
                 DataService.shared.updateInfos(weatherObject: object, dailyObject: daily, hourObject: datas) { updated, error in
