@@ -37,6 +37,7 @@ struct WeatherParser: Parser {
         weather.pressure = jsonDic["main"]["pressure"].intValue
         weather.humidity = jsonDic["main"]["humidity"].intValue
         weather.clouds = jsonDic["clouds"]["all"].intValue
+        weather.speed = jsonDic["wind"]["speed"].doubleValue
         
         return weather
     }

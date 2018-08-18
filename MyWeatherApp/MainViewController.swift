@@ -12,8 +12,25 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var mainWeatherLabel: UILabel!
+    
+    @IBOutlet weak var temperatureView: UIView!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var temperatureMaxLabel: UILabel!
+    @IBOutlet weak var temperatureMinLabel: UILabel!
+    @IBOutlet weak var uparrowImageView: UIImageView!
+    @IBOutlet weak var downarrowImageView: UIImageView!
+    
+    @IBOutlet weak var infosView: UIView!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var windLabel: UILabel!
+    @IBOutlet weak var pressureLabel: UILabel!
+    @IBOutlet weak var cloudLabel: UILabel!
+    @IBOutlet weak var windImageView: UIImageView!
+    @IBOutlet weak var humidityImageView: UIImageView!
+    @IBOutlet weak var pressureImageView: UIImageView!
+    @IBOutlet weak var cloudImageView: UIImageView!
+    
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var dailyForecastCollectionView: UICollectionView!
     
@@ -28,9 +45,19 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.cityLabel.adjustsFontSizeToFitWidth = true
+        
+        //⚠️ TO DO : init function
         self.cityLabel.text = ""
         self.temperatureLabel.text = ""
+        self.temperatureMaxLabel.text = ""
+        self.temperatureMinLabel.text = ""
         self.mainWeatherLabel.text = ""
+        self.humidityLabel.text = ""
+        self.windLabel.text = ""
+        self.pressureLabel.text = ""
+        self.cloudLabel.text = ""
 
         dailyForecastCollectionView.register(UINib(nibName: "DailyForecastCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "dailyForecastCell")
         dailyForecastCollectionView.delegate = self
@@ -51,12 +78,27 @@ class MainViewController: UIViewController {
                 print("MAIN VC: \(weather)")
                 print("icon: \(String(describing: weather.weatherCondition.first?.icon))")
                 self.activityIndicatorView.stopAnimating()
+                
+                //✏️ set labels text
                 self.cityLabel.text = weather.city
                 self.temperatureLabel.text = String(weather.temp) + " °C"
+                self.temperatureMaxLabel.text = String(weather.temp_max) + " °C"
+                self.temperatureMinLabel.text = String(weather.temp_min) + " °C"
+                self.humidityLabel.text = String(weather.humidity) + " %"
+                self.windLabel.text = String(ConversionHelper.mpersecToKmperh(from: weather.speed)) + " Km/h"
+                self.pressureLabel.text = String(weather.pressure) + " hPa"
+                self.cloudLabel.text = String(weather.clouds) + " %"
                 self.mainWeatherLabel.text = weather.weatherCondition.first?.main
-                let imageName = "sleet.png"
-                let image = UIImage(named: imageName)
-                self.imageView.image = image
+                
+                //✏️ set images
+                self.imageView.image = UIImage(named: IconHelper.setIcon(type: String(describing: (weather.weatherCondition.first?.icon)!)))
+                self.uparrowImageView.image = UIImage(named: "uparrow")
+                self.downarrowImageView.image = UIImage(named: "downarrow")
+                self.windImageView.image = UIImage(named: "wind")
+                self.humidityImageView.image = UIImage(named: "humidity")
+                self.pressureImageView.image = UIImage(named: "pressure")
+                self.cloudImageView.image = UIImage(named: "cloud")
+                
                 self.dailyForecastCollectionView.reloadData()
                 
             }

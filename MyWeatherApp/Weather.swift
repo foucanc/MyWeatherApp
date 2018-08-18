@@ -24,7 +24,8 @@ class Weather: Object {
     @objc dynamic var pressure = 0
     @objc dynamic var humidity = 0
     @objc dynamic var clouds = 0
-
+    @objc dynamic var speed = 0.0
+    
     let weatherCondition = List<WeatherCondition>()
     
     let dailyForecast = List<DailyForecast>()
